@@ -17,10 +17,9 @@ function rearrangeLetters(S){
     let A = [];
     let tempA = [];
 
-    //convert string to array
-    for (let i = 0; i < S.length; i++){
-        A[i] = S[i];
-    }
+    //split string apart character by character and 
+    //put each character into the array.
+    A = S.split("")
 
     //make new array with only letters that appear twice
     for (let i = 0; i < A.length; i++){
