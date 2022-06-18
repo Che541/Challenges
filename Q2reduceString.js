@@ -1,3 +1,8 @@
+/*  Problem: Take a string and make sure each character
+*   appears only once. Input comes as a multi line string
+*   First line is the length of the string to be worked on
+*   Second line is the string to be worked on itself.
+*/
 
 //provided by site. 
 let sampleInput = 

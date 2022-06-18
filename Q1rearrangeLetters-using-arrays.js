@@ -1,51 +1,49 @@
+/* Problem: Take a string that contains only lower case letters
+*  and each letter appears no more than twice. Remove all letters 
+*  from the string that only appear once and then sort the characters
+*  in alphabetical order. 
+*/
 
-S1 = "abcabc";
-S2= "ahkh";
-S3 = "abcddb";
-S4 = "kghg";
-S5 = "jjfgdhdssurg";
-S6 = "klmnek";
-
+//provided by site
+const S1 = "abcabc";
+const S2= "ahkh";
+const S3 = "abcddb";
+const S4 = "kghg";
+const S5 = "jjfgdhdssurg";
+const S6 = "klmnek";
 
 function rearrangeLetters(S){
     let result = "";
     let A = [];
+    let tempA = [];
 
-    //convert to array
+    //convert string to array
     for (let i = 0; i < S.length; i++){
         A[i] = S[i];
     }
 
-    let B = [];
-    //make new array with only doubles
+    //make new array with only letters that appear twice
     for (let i = 0; i < A.length; i++){
         let match = false;
-
+        //marks any matches
         for (let j = 0; j < A.length; j++){
             if (A[i] === A[j] && i != j){
                 match = true;
             }
         }
-
+        //if theres a match, push it to the temp array
         if (match === true){
-            B.push(A[i]);
+            tempA.push(A[i]);
         }
     }
+    A = tempA;
 
-    //bubble sort. look it up. 
-    for (let i = 0; i < B.length; i++){
-        for (let j = 0; j < B.length; j++){
-            if (B[j] > B[j + 1]){
-                let temp = B[j];
-                B[j] = B[j + 1];
-                B[j + 1] = temp;
-            }
-        }
-    }
+    //sort array in alphabetical order
+    A.sort();
 
     //convert back to string
-    for (let i = 0; i < B.length; i++){
-        result += B[i];
+    for (let i = 0; i < A.length; i++){
+        result += A[i];
     }
 
     return result;

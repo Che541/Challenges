@@ -1,4 +1,10 @@
+/* Problem: Take a string that contains only lower case letters
+*  and each letter appears no more than twice. Remove all letters 
+*  from the string that only appear once and then sort the characters
+*  in alphabetical order. 
+*/
 
+//provided by site
 const S1 = "abcabc";
 const S2= "ahkh";
 const S3 = "abcddb";
@@ -6,9 +12,8 @@ const S4 = "kghg";
 const S5 = "jjfgdhdssurg";
 const S6 = "klmnek";
 
-
 function rearrangeLetters(S){
-    temp = "";
+    let tempS = "";
 
     //make new string with only double characters
     //iterates character by character over entire string length
@@ -23,11 +28,11 @@ function rearrangeLetters(S){
         }
         //if a match was found, the character at index i is added to the temp string. 
         if (match === true){
-            temp += S[i];       
+            tempS += S[i];       
         }
     }
     //assign new string to old string 
-    S = temp;
+    S = tempS;
 
 
     //bubble sort algorithm. look it up
@@ -36,11 +41,11 @@ function rearrangeLetters(S){
         for (let j = 0; j < S.length; j++){
             if (S[j] > S[j + 1]){
                 //string manipulation to swap positions of characters at place j and j + 1 
-                temp = S.substring(0, j);
-                temp += S[j + 1];
-                temp += S[j];
-                temp += S.slice(j + 2);
-                S = temp;        
+                tempS = S.substring(0, j);
+                tempS += S[j + 1];
+                tempS += S[j];
+                tempS += S.slice(j + 2);
+                S = tempS;        
             }
         }
     }
